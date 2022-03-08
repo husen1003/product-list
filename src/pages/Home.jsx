@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Filters from '../components/Filters';
 import Layout from '../components/Layout';
 import ProductCard from '../components/ProductCard';
 
@@ -20,20 +21,25 @@ const Home = () => {
   return (
     <>
       <Layout menu={'1'}>
-        <div className='flex flex-wrap justify-around'>
-          {filteredProducts &&
-            filteredProducts.length > 0 &&
-            filteredProducts.map((product) => {
-              return (
-                <ProductCard
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  image={product.image}
-                  product={product}
-                />
-              );
-            })}
+        <div className='flex'>
+          {/* <div>
+            <Filters />
+          </div> */}
+          <div className='flex flex-wrap justify-around'>
+            {filteredProducts &&
+              filteredProducts.length > 0 &&
+              filteredProducts.map((product) => {
+                return (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    image={product.image}
+                    product={product}
+                  />
+                );
+              })}
+          </div>
         </div>
       </Layout>
     </>
